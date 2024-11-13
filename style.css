@@ -1,0 +1,33 @@
+// Variables to track change over time
+float , y;
+float angle = 0;  // variable for oscillation
+float speed = 0.05;  // speed of oscillation
+int r, g, b;  // color variables
+
+void setup() {
+  size(400, 400);
+  // Initial position and random color
+  x = width / 2;
+  y = height / 2;
+  r = int(random(255));
+  g = int(random(255));
+  b = int(random(255));
+}
+
+void draw() {
+  background(255);
+  
+  // Use of intermediate value
+  float offset = sin(angle) * 100;
+  
+  // Update x and y coordinates using oscillation
+  x = width / 2 + offset;
+  y = height / 2 + offset;
+  
+  // Draw the circle with randomized color
+  fill(r, g, b);
+  ellipse(x, y, 50, 50);
+  
+  // Update the angle over time
+  angle += speed;
+}
